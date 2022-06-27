@@ -367,3 +367,35 @@ test('Crear producto con su detalle', async () => {
     expect(product.detail).toBe(productData.detail);
 
 });
+
+test('Ordenar productos alfabeticamente', async () => {
+    const firstProductData = {
+        price: 1000.0,
+        name: 'C',
+        type: ProductType.HOME,
+    };
+
+    const secondProductData = {
+        price: 1000.0,
+        name: 'A',
+        type: ProductType.HOME,
+    };
+
+    const thirdProductData = {
+        price: 1000.0,
+        name: 'B',
+        type: ProductType.HOME,
+    };
+
+    // Creamos los productos
+    await ProductModel.create(firstProductData);
+    await ProductModel.create(secondProductData);
+    await ProductModel.create(thirdProductData);
+
+    let products = await ProductModel.getAll(null, null, null);
+
+    // La lista de productos debería tener 3 elementos
+    expect(products.rows.length).toBe(3);
+    // El primer elemento debería estar ordenado alfabeticamente
+    expect(products.rows[0].name).toBe('A');
+});
