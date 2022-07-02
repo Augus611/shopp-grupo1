@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2022-06-29
+
+### Added
+
+-   Test Ordenar Alfabeticamente
+
 ## [1.0.0] - 2022-06-22
 
 -   Modelos de Producto y Carrito
